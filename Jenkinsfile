@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         ENV_URL         = "pipeline.google.com"             // Global variable or pipeline variable. Every stage can use when declared here.
-        SSHCRED   = credentials('SSH`_CRED')
+        SSHCRED   = credentials('SSH_CRED')
     }
     parameters {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
