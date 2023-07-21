@@ -106,5 +106,8 @@ pipeline {
         aborted { 
             echo 'I will always say Hello WHEN THE JOB IS ABORTED!'
         }
+        success { 
+            echo 'I will always say Hello again WHEN THE PIPELINE IS SUCCESS!'
+        }
     }
 }
