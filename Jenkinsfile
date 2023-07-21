@@ -22,7 +22,7 @@ pipeline {
                     echo AWS Training
                     echo Mukesh Batch54
                     echo Name of the URL is ${ENV_URL}
-
+                    sleep 10
                     env 
                 '''
             }
@@ -33,29 +33,34 @@ pipeline {
             environment {
             ENV_URL = "stage.google.com"            // Stage variable.
             }
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-             }
+            // input {
+            //     message "Should we continue?"
+            //     ok "Yes, we should."
+            //     submitter "alice,bob"
+            //     parameters {
+            //         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+            //     }
+            //  }
             steps {
 
                 echo "This is stage two"
                 echo "Name of the URL is ${ENV_URL}"
                 echo "Name of the PERSON is ${PERSON}"
+                sleep 10
             }
         }
 
         stage('Stage Three') {
-            when { branch 'dev' }
+            when { 
+                branch 'dev'
+                changeset "**/*.js"
+             }
             steps {
                 sh '''
                 echo "This is stage three"
                 echo "Name of the URL is ${ENV_URL}"
                 echo -e "\\e[31m Hello!! \\e[0m"
+                sleep 10
                 '''
             }
         }
@@ -66,6 +71,7 @@ pipeline {
                 echo "This is stage four"
                 echo "Name of the URL is ${ENV_URL}"
                 echo -e "\\e[31m Welcome!! \\e[0m"
+                sleep 10
                 '''
             }
         }
