@@ -26,6 +26,7 @@ pipeline {
             }
         }
 
+
         stage('Stage Two') {
             environment {
             ENV_URL = "stage.google.com"            // Stage variable.
@@ -42,7 +43,7 @@ pipeline {
                 sh '''
                 echo "This is stage three"
                 echo "Name of the URL is ${ENV_URL}"
-                echo -e "\\e[31m Hello! \\e[0m"
+                echo -e "\\e[31m Hello!! \\e[0m"
                 '''
             }
         }
