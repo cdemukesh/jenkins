@@ -20,11 +20,19 @@ pipeline {
                 stage ('In Parallel 1') {
                     steps {
                         echo "In Parallel 1"
+                        sleep 15
                     }
                 }
                 stage ('In Paralle 2') {
                     steps {
                         echo "In Paralle 2"
+                        sleep 15
+                    }
+                }
+                stage ('In Paralle 3') {
+                    steps {
+                        echo "In Paralle 3"
+                        sleep 15
                     }
                 }
             }
