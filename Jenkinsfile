@@ -102,6 +102,7 @@ pipeline {
     post { 
         always { 
             echo 'I will always say Hello again!'
+            cleanWs()
         }
         aborted { 
             echo 'I will always say Hello WHEN THE JOB IS ABORTED!'
