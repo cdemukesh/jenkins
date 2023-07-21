@@ -15,6 +15,20 @@ pipeline {
 
     
     stages {
+        stage ('Parallel Stages') {
+            parallel {
+                stage ('In Parallel 1') {
+                    steps {
+                        echo "In Parallel 1"
+                    }
+                }
+                stage ('In Paralle 2') {
+                    steps {
+                        echo "In Paralle 2"
+                    }
+                }
+            }
+        }
         stage('Stage One') {
             steps {
                 sh '''
@@ -51,8 +65,10 @@ pipeline {
 
         stage('Stage Three') {
             when { 
-                branch 'dev'
-                changeset "**/*.js"
+                anyOf {
+                    branch 'dev'
+                    changeset "**/*.js"
+                }
              }
             steps {
                 sh '''
