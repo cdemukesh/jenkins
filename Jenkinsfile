@@ -103,5 +103,8 @@ pipeline {
         always { 
             echo 'I will always say Hello again!'
         }
+        aborted { 
+            echo 'I will always say Hello WHEN THE JOB IS ABORTED!'
+        }
     }
 }
