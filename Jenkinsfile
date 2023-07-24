@@ -20,19 +20,20 @@ pipeline {
                 stage ('In Parallel 1') {
                     steps {
                         echo "In Parallel 1"
-                        sleep 15
+                        sleep 1
+                        hostname
                     }
                 }
                 stage ('In Paralle 2') {
                     steps {
                         echo "In Paralle 2"
-                        sleep 15
+                        sleep 1
                     }
                 }
                 stage ('In Paralle 3') {
                     steps {
                         echo "In Paralle 3"
-                        sleep 15
+                        sleep 1
                     }
                 }
             }
@@ -44,7 +45,7 @@ pipeline {
                     echo AWS Training
                     echo Mukesh Batch54
                     echo Name of the URL is ${ENV_URL}
-                    sleep 10
+                    sleep 1
                     env 
                 '''
             }
@@ -67,7 +68,7 @@ pipeline {
 
                 echo "This is stage two"
                 echo "Name of the URL is ${ENV_URL}"
-                sleep 10
+                sleep 1
             }
         }
 
@@ -83,7 +84,7 @@ pipeline {
                 echo "This is stage three"
                 echo "Name of the URL is ${ENV_URL}"
                 echo -e "\\e[31m Hello!! \\e[0m"
-                sleep 10
+                sleep 1
                 '''
             }
         }
@@ -94,7 +95,7 @@ pipeline {
                 echo "This is stage four"
                 echo "Name of the URL is ${ENV_URL}"
                 echo -e "\\e[31m Welcome!! \\e[0m"
-                sleep 10
+                sleep 1
                 '''
             }
         }
